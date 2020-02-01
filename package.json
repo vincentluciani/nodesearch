@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/vincentluciani/brainstriveapp/issues"
   },
-  "homepage": "https://github.com/vincentluciani/brainstriveapp#readme"
+  "homepage": "https://github.com/vincentluciani/brainstriveapp#readme",
+  "dependencies": {
+    "elasticsearch": "^16.6.0",
+    "express": "^4.17.1",
+    "get-json": "^1.0.1",
+    "winston": "^3.2.1"
+  }
 }

@@ -1,4 +1,6 @@
 var express = require('express');
+var mysearch = require('./mysearch.js');
+
 var router = express.Router();
 
 router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
@@ -7,6 +9,8 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
     if (req.query.keywordType){
         message+=' keywordType:'+req.query.keywordType;
     }
+    var ms = new mysearch(req.params.keyword);
+
     res.send(message);
 
 })
