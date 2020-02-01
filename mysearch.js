@@ -1,7 +1,11 @@
 var client = require('./elasticconnection.js');
 
-var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,res){
+var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,status,
+salesOrg,
+distributionChannel,
+division,res){
 
+    // todo: handle status, salesor, distributionchannel, division
 var resultString="[";
 
 var querybody;
