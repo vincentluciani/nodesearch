@@ -9,9 +9,9 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
     if (req.query.keywordType){
         message+=' keywordType:'+req.query.keywordType;
     }
-    var ms = new mysearch(req.params.keyword);
+    var ms = new mysearch(req.params.keyword,res);
 
-    res.send(message);
+
 
 })
 

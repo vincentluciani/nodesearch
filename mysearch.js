@@ -1,10 +1,11 @@
 var client = require('./elasticconnection.js');
 
-var mysearch = function(keyword){
+var mysearch = function(keyword,res){
 
 client.search({  
   index: 'myse_id',
   type: 'products',
+  filterPath : ['hits.hits._source'],
   body: {
     query: {
       match: { "reference": keyword }
@@ -20,6 +21,7 @@ client.search({
       console.log("--- Hits ---");
       response.hits.hits.forEach(function(hit){
         console.log(hit);
+        res.send(hit._source);
       })
     }
 });
