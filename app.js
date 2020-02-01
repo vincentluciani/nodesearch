@@ -4,6 +4,8 @@ npm install express
 npm install winston
 */
 
+//http://localhost:3333/us/en/search/api/guided/LC1D09M7?keywordType=PRODUCT_REFERENCE
+
 var routers = require('./routers.js');
 var express = require('express');
 var configurationManager = require('./configurationManager.js');

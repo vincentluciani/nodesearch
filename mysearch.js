@@ -1,17 +1,21 @@
 var client = require('./elasticconnection.js');
 
-var mysearch = function(keyword,res){
+var mysearch = function(keyword,country,language,res){
 
-client.search({  
-  index: 'myse_id',
-  type: 'products',
-  filterPath : ['hits.hits._source'],
-  body: {
-    query: {
-      match: { "reference": keyword }
-    },
+var resultString="[";
+
+var elasticquery={  
+    index: 'myse_id',
+    type: 'products',
+    filterPath : ['hits.hits._source'],
+    body: {
+      query: {
+        match: { "reference": keyword }
+      },
+    }
   }
-},function (error, response,status) {
+
+client.search(elasticquery,function (error, response,status) {
     if (error){
       console.log("search error: "+error)
     }
@@ -21,8 +25,10 @@ client.search({
       console.log("--- Hits ---");
       response.hits.hits.forEach(function(hit){
         console.log(hit);
-        res.send(hit._source);
+        resultString+=JSON.stringify(hit._source);
       })
+      resultString+="]";
+      res.send(resultString);
     }
 });
 
