@@ -1,0 +1,27 @@
+{"message":"Environment:development","level":"info"}
+{"message":"Environment:development","level":"info"}
+{"message":"Environment:development","level":"info"}
+{"message":"Environment:production","level":"info"}
+{"message":"Environment:production","level":"info"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"Application ID:todo","level":"info"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"undefined;configuration.wrongFunction is not a function;","level":"error"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"Application ID:2035938886482173","level":"info"}
+{"message":"configuration.wrongFunction is not a function","level":"error"}
+{"message":"configuration.wrongFunction is not a function","level":"error"}
+{"message":"configuration.wrongFunction is not a function","level":"error"}
+{"message":"configuration.wrongFunction is not a function","level":"error"}
+{"message":"Environment:development","level":"info","timestamp":"2020-02-01T10:59:53.197Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:00:22.727Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-02-01T11:01:52.185Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:01:59.988Z"}
+{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T11:03:12.484Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:03:12.672Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-02-01T11:05:43.200Z"}
+{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T11:07:31.318Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:07:31.398Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:09:31.410Z"}

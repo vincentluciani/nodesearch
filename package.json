@@ -1,0 +1,19 @@
+{
+  "name": "brainstriveapp",
+  "version": "1.0.0",
+  "description": "brainstrive application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincentluciani/brainstriveapp.git"
+  },
+  "author": "vincent luciani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincentluciani/brainstriveapp/issues"
+  },
+  "homepage": "https://github.com/vincentluciani/brainstriveapp#readme"
+}
