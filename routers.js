@@ -19,6 +19,7 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
         parseInt(req.query.p,10) || 0,
         parseInt(req.query.perpage,10) || 6,
         filters,
+        req.configuration,
         res);
 
 

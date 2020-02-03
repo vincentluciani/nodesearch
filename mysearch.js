@@ -1,11 +1,17 @@
-var client = require('./elasticconnection.js');
-
-var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,res){
+//var client = require('./elasticconnection.js');
+var elasticsearch=require('elasticsearch');
+var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
     // todo: handle status, salesor, distributionchannel, division
 var resultString="[";
 
 var querybody;
+
+var client = new elasticsearch.Client( {  
+  hosts: [
+    'http://'+ configuration.getElasticHost() +':'+configuration.getElasticPort()+'/'
+  ]
+});
 
 if (keywordtype == "PRODUCT_REFERENCE"){
     querybody={
@@ -47,6 +53,19 @@ if (keywordtype == "PRODUCT_REFERENCE"){
     }
   }
 }
+*/
+
+/*
+{
+    "query": {
+        "wildcard": {
+            "user": {
+                "value": "ki*y",
+                "boost": 1.0,
+                "rewrite": "constant_score"
+            }
+        }
+    }
 */
 var elasticquery={  
     index: 'myse_id',

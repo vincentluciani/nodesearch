@@ -20,7 +20,7 @@ var lm = new logManager(configuration);
 lm.logger.info("Environment:"+configuration.getCurrentEnvironment());
 
 app.use('/', function (req,res,next){
-  req.magicparam="localhost";
+  req.configuration=configuration;
   next();}
   ,routers);
 
