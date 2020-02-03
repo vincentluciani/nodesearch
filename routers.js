@@ -4,12 +4,6 @@ var mysearch = require('./mysearch.js');
 var router = express.Router();
 
 router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
-    var message = 'Search api. Country:'+req.params.country+'. Language:'+req.params.language+'. Keyword:'+req.params.keyword;
-    message+=req.magicparam;
-
-    if (req.query.keywordType){
-        message+=' keywordType:'+req.query.keywordType;
-    }
 
     var filters = {
         status : req.query.status || "",

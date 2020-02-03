@@ -11,20 +11,14 @@ var express = require('express');
 var logManager = require('./logManager.js');
 var configurationManager = require('./configurationManager.js');
 
-var routertest = require('./routertest.js');
-
 var app = express();
 
 var configuration = new configurationManager(app);
-global.host = "test";
 
 var lm = new logManager(configuration);
 
 lm.logger.info("Environment:"+configuration.getCurrentEnvironment());
 
-
-
-//app.use('/',routers);
 app.use('/', function (req,res,next){
   req.magicparam="localhost";
   next();}
