@@ -1,10 +1,10 @@
 var configurationManager = function(app){
 
     var currentEnvironment;
-    var configCommon=require('./config_common.json');
+    var configCommon=require('./config/config_common.json');
     var configSpecificToEnvironment;
-    var configProduction=require('./config_production.json');
-    var configDevelopment=require('./config_development.json');
+    var configProduction=require('./config/config_production.json');
+    var configDevelopment=require('./config/config_development.json');
     
     var clientID;
     var clientSecret;
@@ -22,22 +22,18 @@ var configurationManager = function(app){
             configSpecificToEnvironment = configDevelopment;
         }
 
-        clientID = configSpecificToEnvironment.facebookClient.clientID;
-        clientSecret =  configSpecificToEnvironment.facebookClient.clientSecret
-        brainstriveSecret = configCommon.secret;
+        host = configSpecificToEnvironment.elastic.host;
+        port = configSpecificToEnvironment.elastic.port;
     }
     this.getCurrentEnvironment = function(){
         return currentEnvironment;
     }
-    this.getClientID = function(){
+    this.getElasticHost = function(){
         return clientID;
     }
-    this.getClientSecret = function(){
+    this.getElasticPort = function(){
         return clientSecret;
     }    
-    this.getBrainstriveSecret = function(){
-        return brainstriveSecret;
-    }
 
     this.init(app);
 }

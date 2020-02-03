@@ -1,9 +1,6 @@
 var client = require('./elasticconnection.js');
 
-var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,status,
-salesOrg,
-distributionChannel,
-division,res){
+var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,res){
 
     // todo: handle status, salesor, distributionchannel, division
 var resultString="[";
@@ -33,7 +30,24 @@ if (keywordtype == "PRODUCT_REFERENCE"){
       };
 }
 
-
+/*
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "reference": "LC1D09M7"
+        }
+      },
+      "filter": {
+        "term": {
+          "distributionChannel": "30"
+        }
+      }
+    }
+  }
+}
+*/
 var elasticquery={  
     index: 'myse_id',
     type: 'products',

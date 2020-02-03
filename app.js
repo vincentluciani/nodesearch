@@ -8,22 +8,27 @@ npm install winston
 
 var routers = require('./routers.js');
 var express = require('express');
-var configurationManager = require('./configurationManager.js');
 var logManager = require('./logManager.js');
+var configurationManager = require('./configurationManager.js');
+
+var routertest = require('./routertest.js');
 
 var app = express();
 
 var configuration = new configurationManager(app);
+global.host = "test";
+
 var lm = new logManager(configuration);
 
 lm.logger.info("Environment:"+configuration.getCurrentEnvironment());
-// https://stackoverflow.com/questions/18931452/node-js-get-path-from-the-request
-/*app.get('/test',function(req,res){
-    res.send('hello world. Environment:<br>'+configuration.getCurrentEnvironment());
-    res.send('Should provoke an error:<br>'+configuration.wrongFunction());
-});*/
 
-app.use('/',routers);
+
+
+//app.use('/',routers);
+app.use('/', function (req,res,next){
+  req.magicparam="localhost";
+  next();}
+  ,routers);
 
 app.listen(3333);
 
@@ -38,7 +43,5 @@ app.use(function(err, req, res, next) {
     lm.logger.error(err.message);
   
   });
-
-  
 
 module.exports = app;

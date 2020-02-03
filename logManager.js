@@ -7,11 +7,11 @@ var logManager = function(configuration)
   this.logger = new (winston.createLogger)({
     transports: [
       new (winston.transports.Console)({ json: false, timestamp: true }),
-      new winston.transports.File({ filename: __dirname + '/debug.log', json: false })
+      new winston.transports.File({ filename: __dirname + '/logs/debug.log', json: false })
     ],
     exceptionHandlers: [
       new (winston.transports.Console)({ json: false, timestamp: true }),
-      new winston.transports.File({ filename: __dirname + '/exceptions.log', json: false })
+      new winston.transports.File({ filename: __dirname + '/logs/exceptions.log', json: false })
     ],
     format: winston.format.combine(
       winston.format.timestamp(),
@@ -34,6 +34,3 @@ var logManager = function(configuration)
 };
 
 module.exports = logManager;
-
-// module.exports = logger;
-//module.exports = setLogLevel;
