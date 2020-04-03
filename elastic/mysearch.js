@@ -2,27 +2,46 @@
 var elasticsearch=require('elasticsearch');
 var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
+
     // todo: handle status, salesor, distributionchannel, division
 var resultString="[";
 
 var querybody;
 
+var host = configuration.getElasticHost();
+var port = configuration.getElasticPort();
+
+var url = 'https://'+ host;
+
+if (null!=port && port!=""){
+  url+=':'+port+'/';
+} else {
+  url+='/';
+}
+/*
+
+url+="/_search?type=_doc&filter_path=hits.hits._source";
+
+if (null!=pageNumber&&null!=perPage){
+  url+="&size="+perPage+"&from="+pageNumber;
+}*/
+
 var client = new elasticsearch.Client( {  
   hosts: [
-    'http://'+ configuration.getElasticHost() +':'+configuration.getElasticPort()+'/'
+    url
   ]
 });
 
 if (keywordtype == "PRODUCT_REFERENCE"){
     querybody={
         query: {
-          match: { "reference": keyword }
+          match: { "PRODUCT_REFERENCE": keyword }
         },
       };
 } else if (keywordtype == "PRODUCT_DESCRIPTION"){
     querybody={
     query: {
-      match: { "title": keyword }
+      match: { "PRODUCT_DESCRIPTION": keyword }
     },
   };
 } else {
@@ -30,11 +49,12 @@ if (keywordtype == "PRODUCT_REFERENCE"){
         query: {
             "multi_match" : {
                 "query":  keyword, 
-                "fields": [ "reference", "title" ] 
+                "fields": [ "PRODUCT_REFERENCE", "PRODUCT_DESCRIPTION" ] 
               }
         },
       };
 }
+
 
 /*
 {
@@ -66,18 +86,48 @@ if (keywordtype == "PRODUCT_REFERENCE"){
             }
         }
     }
+
+Worked on postman:
+https://vpc-use-srh-es-myse-lnlavs4da5mkg7bdtvsfixil4y.us-east-1.es.amazonaws.com/at-de/_search?type=_doc&filter_path=hits.hits._source&size=6&from=0
+
+
+    {"query":
+  {
+  	"multi_match":
+    {
+      "query":"PHASENTRENNER",
+      "fields":["PRODUCT_DESCRIPTION","PRODUCT_REFERENCE"]
+    }
+  }
+}
+
+
+
+
+http://localhost:3333/at/de/search/api/guided/3303430325710?keywordType=PRODUCT_REFERENCE&p=1&perpage=9
+failed
 */
+
+var indexString = country + "-" + language;
+
 var elasticquery={  
-    index: 'myse_id',
-    type: 'products',
+    index: indexString,
+    type: '_doc',
     filterPath : ['hits.hits._source'],
     body: querybody
   };
-
   if (null!=pageNumber&&null!=perPage){
-      elasticquery.size = perPage;
-      elasticquery.from = pageNumber;
-    }
+    elasticquery.size = perPage;
+    elasticquery.from = pageNumber;
+  }
+  /*
+  var elasticquery={  
+    body: querybody
+  };
+*/
+
+
+var elasticQueryValue=JSON.stringify(elasticquery);
 
 client.search(elasticquery,function (error, response,status) {
     if (error){

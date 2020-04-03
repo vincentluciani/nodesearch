@@ -1,8 +1,8 @@
 class query{
     constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration){
         var queryBody = {  
-            index: 'myse_id',
-            type: 'products',
+            index: 'at-de',
+            type: '_doc',
             filterPath : ['hits.hits._source']          
           };
         

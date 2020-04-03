@@ -1,193 +1,44 @@
-{"message":"Environment:development","level":"info"}
-{"message":"Environment:development","level":"info"}
-{"message":"Environment:development","level":"info"}
-{"message":"Environment:production","level":"info"}
-{"message":"Environment:production","level":"info"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"Application ID:todo","level":"info"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"undefined;configuration.wrongFunction is not a function;","level":"error"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"Application ID:2035938886482173","level":"info"}
-{"message":"configuration.wrongFunction is not a function","level":"error"}
-{"message":"configuration.wrongFunction is not a function","level":"error"}
-{"message":"configuration.wrongFunction is not a function","level":"error"}
-{"message":"configuration.wrongFunction is not a function","level":"error"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T10:59:53.197Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:00:22.727Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T11:01:52.185Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:01:59.988Z"}
-{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T11:03:12.484Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:03:12.672Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T11:05:43.200Z"}
-{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T11:07:31.318Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:07:31.398Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:09:31.410Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T11:11:57.650Z"}
-{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T11:12:03.052Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:12:03.238Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T11:14:03.244Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T16:48:27.930Z"}
-{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T16:48:30.563Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T16:48:30.627Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T16:50:30.633Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T16:58:52.263Z"}
-{"message":"configuration.wrongFunction is not a function","level":"error","timestamp":"2020-02-01T16:59:01.972Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T16:59:02.082Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T16:59:31.568Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:02:18.605Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:02:32.921Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:04:06.258Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:04:10.230Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:04:29.375Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:04:35.776Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:05:32.922Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:05:32.990Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:05:36.869Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:05:43.473Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:08:04.097Z"}
-{"message":"Cannot set headers after they are sent to the client","level":"error","timestamp":"2020-02-01T17:08:08.283Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:08:08.389Z"}
-{"message":"Cannot set headers after they are sent to the client","level":"error","timestamp":"2020-02-01T17:08:15.179Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:08:15.258Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:10:15.796Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:10:22.544Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:10:46.868Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:10:51.157Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:12:51.161Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:30:43.116Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:30:48.792Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:34:15.053Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:37:11.409Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:38:03.284Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:39:10.579Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:44:27.351Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:44:44.824Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:46:52.989Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:47:32.641Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:47:45.842Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:48:36.110Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:48:41.781Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T17:48:55.451Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:50:30.620Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T17:52:30.628Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:11:14.804Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:12:15.340Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:12:53.210Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:15:36.522Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:18:10.922Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:18:11.089Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:18:22.854Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:20:54.363Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:21:29.763Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:23:29.780Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:24:01.076Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:24:05.972Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:26:05.977Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:27:44.991Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:29:36.710Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:30:47.718Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:32:02.879Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:34:07.133Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:34:44.800Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:36:03.866Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:37:39.487Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:37:58.979Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:38:38.441Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:40:38.455Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:44:31.206Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:44:49.936Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:46:49.942Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:49:41.864Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:49:58.377Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:51:58.386Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T21:56:24.359Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:57:01.241Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T21:58:11.634Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T22:03:14.871Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:03:18.320Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:03:27.817Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:03:40.789Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:05:40.795Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T22:14:33.531Z"}
-{"message":"elasticquery.push is not a function","level":"error","timestamp":"2020-02-01T22:15:36.127Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T22:18:48.489Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:19:42.551Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:20:15.183Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:22:15.206Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:25:04.637Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:25:34.680Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:27:34.693Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-01T22:28:51.532Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:29:26.858Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:30:39.498Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:33:06.759Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-01T22:33:07.522Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:23:30.061Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:23:41.880Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:24:08.185Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:25:16.121Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:25:16.340Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:25:23.359Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:26:06.298Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:26:06.417Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:26:10.147Z"}
-{"message":"eq is not defined","level":"error","timestamp":"2020-02-02T21:26:24.540Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:27:35.907Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:29:51.882Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:31:09.076Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:32:12.513Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-02T21:32:25.327Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T21:32:50.622Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-02T21:33:58.432Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-02T21:35:58.455Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-02T22:02:02.067Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-02T22:02:06.881Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-02T22:04:06.886Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T08:42:40.023Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T08:43:02.434Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T08:56:25.931Z"}
-{"message":"configuration.getElasticHost is not a function","level":"error","timestamp":"2020-02-03T08:56:50.407Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T09:00:11.555Z"}
-{"message":"console is not a function","level":"error","timestamp":"2020-02-03T09:05:17.315Z"}
-{"message":"console is not a function","level":"error","timestamp":"2020-02-03T09:05:42.803Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T09:06:08.892Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T09:07:22.061Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T09:09:22.063Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T09:14:30.614Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T09:14:54.873Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T09:16:54.878Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T10:02:33.755Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:03:25.093Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:05:25.099Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T10:07:06.954Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:07:13.183Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:07:40.567Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:07:58.663Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:08:10.782Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T10:09:13.172Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:09:23.854Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:09:33.056Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:10:02.809Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:12:02.819Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T10:33:40.285Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:33:51.725Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:34:08.931Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T10:36:08.934Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T11:01:48.013Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T11:01:56.328Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T11:01:57.143Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T11:02:15.870Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T11:04:15.885Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T15:47:26.982Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T15:51:00.367Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T15:57:03.786Z"}
-{"message":"elasticsearch is not defined","level":"error","timestamp":"2020-02-03T15:57:12.403Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-03T15:57:45.301Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T15:57:45.807Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-03T15:58:05.185Z"}
-{"message":"Environment:development","level":"info","timestamp":"2020-02-06T19:02:25.528Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-06T19:03:31.740Z"}
-{"message":"createError is not defined","level":"error","timestamp":"2020-02-06T19:05:31.747Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:28:56.256Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-04-03T18:29:26.536Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-04-03T18:30:28.289Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:31:33.856Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-04-03T18:31:52.529Z"}
+{"message":"createError is not defined","level":"error","timestamp":"2020-04-03T18:33:42.280Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:39:40.927Z"}
+{"level":"error","timestamp":"2020-04-03T18:39:55.933Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:41:25.381Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:42:39.762Z"}
+{"level":"error","timestamp":"2020-04-03T18:42:53.553Z"}
+{"level":"error","timestamp":"2020-04-03T18:43:42.736Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:44:27.830Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:45:56.894Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:47:46.137Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:49:18.095Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T18:54:15.630Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T19:33:26.594Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:15:04.775Z"}
+{"message":"queryBody is not defined","level":"error","timestamp":"2020-04-03T21:16:33.428Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:17:41.906Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:18:48.010Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:22:04.376Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:56:59.185Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:57:28.948Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:58:31.883Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T21:59:02.118Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:01:11.373Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:03:38.016Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:05:02.469Z"}
+{"level":"error","timestamp":"2020-04-03T22:05:50.372Z"}
+{"level":"error","timestamp":"2020-04-03T22:06:47.184Z"}
+{"level":"error","timestamp":"2020-04-03T22:07:08.298Z"}
+{"level":"error","timestamp":"2020-04-03T22:09:13.178Z"}
+{"level":"error","timestamp":"2020-04-03T22:09:55.901Z"}
+{"level":"error","timestamp":"2020-04-03T22:15:24.679Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:24:24.447Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:26:05.364Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:30:39.101Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:31:45.423Z"}
+{"level":"error","timestamp":"2020-04-03T22:32:22.825Z"}
+{"level":"error","timestamp":"2020-04-03T22:33:00.124Z"}
+{"message":"Environment:development","level":"info","timestamp":"2020-04-03T22:35:39.711Z"}
+{"level":"error","timestamp":"2020-04-03T22:36:05.494Z"}

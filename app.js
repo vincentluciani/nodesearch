@@ -5,11 +5,13 @@ npm install winston
 */
 
 //http://localhost:3333/us/en/search/api/guided/LC1D09M7?keywordType=PRODUCT_REFERENCE
+//http://localhost:3333/at/de/search/api/guided/PHASENTRENNER?keywordType=PRODUCT_DESCRIPTION&p=9&perpage=2
 
 var routers = require('./routers.js');
 var express = require('express');
 var logManager = require('./logManager.js');
 var configurationManager = require('./configurationManager.js');
+var createError = require('createerror');
 
 var app = express();
 
