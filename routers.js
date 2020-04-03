@@ -1,5 +1,5 @@
 var express = require('express');
-var mysearch = require('./mysearch.js');
+var mysearch = require('./elastic/mysearch.js');
 
 var router = express.Router();
 
