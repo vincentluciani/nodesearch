@@ -1,7 +1,10 @@
 class query{
     constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration){
+        
+        var indexString = country + "-" + language;
+        
         var queryBody = {  
-            index: 'at-de',
+            index: indexString,
             type: '_doc',
             filterPath : ['hits.hits._source']          
           };

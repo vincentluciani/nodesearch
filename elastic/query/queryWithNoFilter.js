@@ -7,13 +7,13 @@ class queryWithNoFilter extends query
         if (keywordtype == "PRODUCT_REFERENCE"){
             this.queryBody.body={
                 query: {
-                match: { "reference": keyword }
+                match: { "PRODUCT_REFERENCE": keyword }
                 },
             };
         } else if (keywordtype == "PRODUCT_DESCRIPTION"){
             this.queryBody.body={
             query: {
-            match: { "title": keyword }
+            match: { "PRODUCT_DESCRIPTION": keyword }
             },
         };
         } else {
@@ -29,7 +29,10 @@ class queryWithNoFilter extends query
 
         return this.queryBody;
     }
+    getQueryBody(){
+        return this.queryBody;
+    }
 }
-
+modules.exports = queryWithNoFilter
 
 

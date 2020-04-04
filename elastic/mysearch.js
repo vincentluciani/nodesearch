@@ -56,24 +56,6 @@ if (keywordtype == "PRODUCT_REFERENCE"){
 }
 
 
-/*
-{
-  "query": {
-    "bool": {
-      "must": {
-        "match": {
-          "reference": "LC1D09M7"
-        }
-      },
-      "filter": {
-        "term": {
-          "distributionChannel": "30"
-        }
-      }
-    }
-  }
-}
-*/
 
 /*
 {
@@ -90,20 +72,7 @@ if (keywordtype == "PRODUCT_REFERENCE"){
 Worked on postman:
 https://vpc-use-srh-es-myse-lnlavs4da5mkg7bdtvsfixil4y.us-east-1.es.amazonaws.com/at-de/_search?type=_doc&filter_path=hits.hits._source&size=6&from=0
 
-
-    {"query":
-  {
-  	"multi_match":
-    {
-      "query":"PHASENTRENNER",
-      "fields":["PRODUCT_DESCRIPTION","PRODUCT_REFERENCE"]
-    }
-  }
-}
-
-
-
-
+  
 http://localhost:3333/at/de/search/api/guided/3303430325710?keywordType=PRODUCT_REFERENCE&p=1&perpage=9
 failed
 */
@@ -120,12 +89,21 @@ var elasticquery={
     elasticquery.size = perPage;
     elasticquery.from = pageNumber;
   }
-  /*
-  var elasticquery={  
-    body: querybody
-  };
-*/
 
+
+
+// TODO:
+/*
+
+if (filters.size > 1){
+  var queryBuilder = new queryWithFilters(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+} else {
+  var queryBuilder = new queryWithoutFilters(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+}
+  elasticQuery = queryWithFilters.getElasticQueryBody();  
+  elasticQuery.body = queryWithFilters.getQueryBody();
+
+*/
 
 var elasticQueryValue=JSON.stringify(elasticquery);
 
