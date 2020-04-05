@@ -1,4 +1,6 @@
-class filters{
+class filterBuilder{
+
+    // TODO: use objectName["propertyName"] and construct propertyname
 
     constructor(listOfFilters){
 
@@ -37,10 +39,11 @@ class filters{
                         }};
         } else if (this.filters.size == 1){
             this.filter= this.singleFilter;
-            }
         }
     }
 
-
-
+    getFilterBody(){
+        return this.filter;
+    }
 }
+module.exports = filterBuilder

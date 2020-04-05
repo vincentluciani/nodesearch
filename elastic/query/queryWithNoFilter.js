@@ -1,23 +1,28 @@
 
+var query = require('./query.js');
+
 class queryWithNoFilter extends query
 {
-    super(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration)
+
     constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration){
+        super(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration)
+
+        this.queryBody={};
 
         if (keywordtype == "PRODUCT_REFERENCE"){
-            this.queryBody.body={
+            this.queryBody={
                 query: {
                 match: { "PRODUCT_REFERENCE": keyword }
                 },
             };
         } else if (keywordtype == "PRODUCT_DESCRIPTION"){
-            this.queryBody.body={
+            this.queryBody={
             query: {
             match: { "PRODUCT_DESCRIPTION": keyword }
             },
         };
         } else {
-            this.queryBody.body={
+            this.queryBody={
                 query: {
                     "multi_match" : {
                         "query":  keyword, 
@@ -27,12 +32,15 @@ class queryWithNoFilter extends query
             };
         }  
 
+      /*  return this.queryBody;*/
+    }
+    get getQueryBody(){
         return this.queryBody;
     }
-    getQueryBody(){
-        return this.queryBody;
+    get getElasticQueryBody(){
+        return this.elasticQueryBody;
     }
 }
-modules.exports = queryWithNoFilter
+module.exports = queryWithNoFilter
 
 

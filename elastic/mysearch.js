@@ -1,5 +1,8 @@
 //var client = require('./elasticconnection.js');
 var elasticsearch=require('elasticsearch');
+var queryWithFilter = require('./query/queryWithFilter.js');
+var queryWithNoFilter = require('./query/queryWithNoFilter.js');
+
 var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
 
@@ -90,20 +93,19 @@ var elasticquery={
     elasticquery.from = pageNumber;
   }
 
-
-
 // TODO:
-/*
+
+let myQueryBuilder;
 
 if (filters.size > 1){
-  var queryBuilder = new queryWithFilters(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+  myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
 } else {
-  var queryBuilder = new queryWithoutFilters(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+  myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
 }
-  elasticQuery = queryWithFilters.getElasticQueryBody();  
-  elasticQuery.body = queryWithFilters.getQueryBody();
-
-*/
+  elasticquery = myQueryBuilder.getElasticQueryBody;  
+  elasticquery.body = myQueryBuilder.getQueryBody;
+  
+// END TODO
 
 var elasticQueryValue=JSON.stringify(elasticquery);
 

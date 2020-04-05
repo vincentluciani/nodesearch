@@ -3,18 +3,23 @@ class query{
         
         var indexString = country + "-" + language;
         
-        var queryBody = {  
+        this.elasticQueryBody = {  
             index: indexString,
             type: '_doc',
             filterPath : ['hits.hits._source']          
           };
         
           if (null!=pageNumber&&null!=perPage){
-                queryBody.size = perPage;
-                queryBody.from = pageNumber;
+                this.elasticQueryBody.size = perPage;
+                this.elasticQueryBody.from = pageNumber;
             }
+    }
+    get getElasticQueryBody(){
+        return this.elasticQueryBody;
     }
 }
 
-modules.exports = query
+
+
+module.exports = query
 // body: querybody
