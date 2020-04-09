@@ -14,7 +14,13 @@ var querybody;
 var host = configuration.getElasticHost();
 var port = configuration.getElasticPort();
 
-var url = 'https://'+ host;
+var url;
+
+if ( host == "localhost"){
+  url='http://'+ host;
+} else {
+  url = 'https://'+ host;
+}
 
 if (null!=port && port!=""){
   url+=':'+port+'/';
@@ -80,11 +86,9 @@ http://localhost:3333/at/de/search/api/guided/3303430325710?keywordType=PRODUCT_
 failed
 */
 
-var indexString = country + "-" + language;
-
 var elasticquery={  
-    index: indexString,
-    type: '_doc',
+    index: country,
+    type: language,
     filterPath : ['hits.hits._source'],
     body: querybody
   };
@@ -111,17 +115,22 @@ var elasticQueryValue=JSON.stringify(elasticquery);
 
 client.search(elasticquery,function (error, response,status) {
     if (error){
-      console.log("search error: "+error)
+        console.log("search error: "+error)
     }
     else {
       console.log("--- Response ---");
       console.log(response);
       console.log("--- Hits ---");
+
+      if (null!=response.hits&&null!=response.hits.hits&&response.hits.hits.length>=1){
       response.hits.hits.forEach(function(hit){
         console.log(hit);
         resultString+=JSON.stringify(hit._source)+",";
       })
       resultString+="]";
+    } else {
+      resultString="[]";
+    }
       res.send(resultString);
     }
 });

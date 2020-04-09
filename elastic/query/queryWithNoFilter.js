@@ -26,7 +26,7 @@ class queryWithNoFilter extends query
                 query: {
                     "multi_match" : {
                         "query":  keyword, 
-                        "fields": [ "reference", "title" ] 
+                        "fields": [ "PRODUCT_DESCRIPTION", "PRODUCT_REFERENCE" ] 
                     }
                 },
             };

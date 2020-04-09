@@ -1,11 +1,9 @@
 class query{
     constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration){
         
-        var indexString = country + "-" + language;
-        
         this.elasticQueryBody = {  
-            index: indexString,
-            type: '_doc',
+            index: country,
+            type: language,
             filterPath : ['hits.hits._source']          
           };
         
