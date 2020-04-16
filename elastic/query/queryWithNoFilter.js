@@ -12,21 +12,30 @@ class queryWithNoFilter extends query
         if (keywordtype == "PRODUCT_REFERENCE"){
             this.queryBody={
                 query: {
-                match: { "PRODUCT_REFERENCE": keyword }
+                    query_string: 
+                    {
+                        query: keyword,
+                        fields : ["PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                    }
                 },
             };
         } else if (keywordtype == "PRODUCT_DESCRIPTION"){
             this.queryBody={
             query: {
-            match: { "PRODUCT_DESCRIPTION": keyword }
+                query_string: 
+                {
+                    query: keyword,
+                    fields : ["PRODUCT_DESCRIPTION","PRODUCT_DESCRIPTION-NGRAM"]
+                }
             },
         };
         } else {
             this.queryBody={
                 query: {
-                    "multi_match" : {
-                        "query":  keyword, 
-                        "fields": [ "PRODUCT_DESCRIPTION", "PRODUCT_REFERENCE" ] 
+                    query_string: 
+                    {
+                        query: keyword,
+                        fields : [  "PRODUCT_REFERENCE", "PRODUCT_DESCRIPTION"] 
                     }
                 },
             };

@@ -1,8 +1,12 @@
 class filterBuilder{
 
     // TODO: use objectName["propertyName"] and construct propertyname
+    
 
     constructor(listOfFilters){
+
+        this.filters=[];
+        this.singleFilter={};
 
         if ( null != listOfFilters.status && listOfFilters.status != "" ){
             this.filters.push({
@@ -11,11 +15,11 @@ class filterBuilder{
             this.singleFilter={"status": listOfFilters.status};
         }
 
-        if ( null != listOfFilters.salesOrg && listOfFilters.salesOrg != "" ){
+        if ( null != listOfFilters.salesOrganization && listOfFilters.salesOrganization != "" ){
             this.filters.push({
-            "term": {"salesOrg": listOfFilters.salesOrg}
+            "term": {"salesOrganization": listOfFilters.salesOrg}
             });
-            this.singleFilter={"salesOrg": listOfFilters.salesOrg};
+            this.singleFilter={"salesOrganization": listOfFilters.salesOrg};
         }
 
         if ( null != listOfFilters.distributionChannel && listOfFilters.distributionChannel != "" ){
@@ -25,13 +29,14 @@ class filterBuilder{
             this.singleFilter={"distributionChannel": listOfFilters.distributionChannel};
         }
 
-        if ( null != filters.division && filters.division != "" ){
+        if ( null != listOfFilters.division && listOfFilters.division != "" ){
             this.filters.push({
-            "term": {"division": filters.division}
+            "term": {"division": listOfFilters.division}
             });
             this.singleFilter={"division": listOfFilters.division};
         }
 
+        this.filter={};
 
         if (this.filters.size > 1){
             this.filter= { "and": {

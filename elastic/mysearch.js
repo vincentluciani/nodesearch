@@ -5,8 +5,7 @@ var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 
 var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
-
-    // todo: handle status, salesor, distributionchannel, division
+// todo: handle status, salesor, distributionchannel, division
 var resultString="[";
 
 var querybody;
@@ -27,64 +26,12 @@ if (null!=port && port!=""){
 } else {
   url+='/';
 }
-/*
-
-url+="/_search?type=_doc&filter_path=hits.hits._source";
-
-if (null!=pageNumber&&null!=perPage){
-  url+="&size="+perPage+"&from="+pageNumber;
-}*/
 
 var client = new elasticsearch.Client( {  
   hosts: [
     url
   ]
 });
-
-if (keywordtype == "PRODUCT_REFERENCE"){
-    querybody={
-        query: {
-          match: { "PRODUCT_REFERENCE": keyword }
-        },
-      };
-} else if (keywordtype == "PRODUCT_DESCRIPTION"){
-    querybody={
-    query: {
-      match: { "PRODUCT_DESCRIPTION": keyword }
-    },
-  };
-} else {
-    querybody={
-        query: {
-            "multi_match" : {
-                "query":  keyword, 
-                "fields": [ "PRODUCT_REFERENCE", "PRODUCT_DESCRIPTION" ] 
-              }
-        },
-      };
-}
-
-
-
-/*
-{
-    "query": {
-        "wildcard": {
-            "user": {
-                "value": "ki*y",
-                "boost": 1.0,
-                "rewrite": "constant_score"
-            }
-        }
-    }
-
-Worked on postman:
-https://vpc-use-srh-es-myse-lnlavs4da5mkg7bdtvsfixil4y.us-east-1.es.amazonaws.com/at-de/_search?type=_doc&filter_path=hits.hits._source&size=6&from=0
-
-  
-http://localhost:3333/at/de/search/api/guided/3303430325710?keywordType=PRODUCT_REFERENCE&p=1&perpage=9
-failed
-*/
 
 var elasticquery={  
     index: country,
@@ -101,21 +48,21 @@ var elasticquery={
 
 let myQueryBuilder;
 
-if (filters.size > 1){
+if (filters.salesOrganization!="" || filters.status!=""||filters.distributionChannel!=""||filters.division!="")
+{
   myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
 } else {
   myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
 }
   elasticquery = myQueryBuilder.getElasticQueryBody;  
   elasticquery.body = myQueryBuilder.getQueryBody;
-  
-// END TODO
+
 
 var elasticQueryValue=JSON.stringify(elasticquery);
 
 client.search(elasticquery,function (error, response,status) {
     if (error){
-        console.log("search error: "+error)
+        console.log("search error: "+error+" query:"+elasticquery)
     }
     else {
       console.log("--- Response ---");

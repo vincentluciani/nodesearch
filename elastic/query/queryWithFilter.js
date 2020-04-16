@@ -1,4 +1,5 @@
 var query = require('./query.js');
+var filtersBuilder = require('./filtersBuilder.js');
 
 class queryWithFilter extends query
 {
@@ -13,8 +14,10 @@ class queryWithFilter extends query
             {
                 "bool": {
                     "must": {
-                        "match": {
-                        "reference": keyword
+                        "query_string":
+                        {
+                            "query":keyword,
+                            "fields": [ "PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
                         }
                     }
                 }
@@ -26,14 +29,30 @@ class queryWithFilter extends query
             {
                 "bool": {
                     "must": {
-                        "match": {
-                        "title": keyword
+                        "query_string":
+                        {
+                            "query":keyword,
+                            "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_DESCRIPTION-NGRAM"] 
                         }
                     }
                 }
             } 
 
-        };
+        } else 
+        {
+            this.queryBody = 
+            {
+                "bool": {
+                    "must": {
+                        "query_string":
+                        {
+                            "query":keyword,
+                            "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                        }
+                    }
+                }
+            } 
+        }
 
         this.queryBody.bool.filter = filterBody;
     }

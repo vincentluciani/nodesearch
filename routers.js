@@ -7,7 +7,7 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
 
     var filters = {
         status : req.query.status || "",
-        salesOrg : req.query.salesOrg || "",
+        salesOrganization : req.query.salesOrganization || "",
         distributionChannel : req.query.distributionChannel || "",
         division : req.query.division || "",
     };
