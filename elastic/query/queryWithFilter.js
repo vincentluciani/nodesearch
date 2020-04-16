@@ -12,12 +12,15 @@ class queryWithFilter extends query
         if (keywordtype == "PRODUCT_REFERENCE"){
             this.queryBody = 
             {
-                "bool": {
-                    "must": {
-                        "query_string":
-                        {
-                            "query":keyword,
-                            "fields": [ "PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                "query":
+                {
+                    "bool": {
+                        "must": {
+                            "query_string":
+                            {
+                                "query":keyword,
+                                "fields": [ "PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                            }
                         }
                     }
                 }
@@ -27,12 +30,15 @@ class queryWithFilter extends query
 
             this.queryBody = 
             {
-                "bool": {
-                    "must": {
-                        "query_string":
-                        {
-                            "query":keyword,
-                            "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_DESCRIPTION-NGRAM"] 
+               "query":
+                {
+                    "bool": {
+                        "must": {
+                            "query_string":
+                            {
+                                "query":keyword,
+                                "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_DESCRIPTION-NGRAM"] 
+                            }
                         }
                     }
                 }
@@ -42,19 +48,22 @@ class queryWithFilter extends query
         {
             this.queryBody = 
             {
-                "bool": {
-                    "must": {
-                        "query_string":
-                        {
-                            "query":keyword,
-                            "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                "query":
+                {
+                    "bool": {
+                        "must": {
+                            "query_string":
+                            {
+                                "query":keyword,
+                                "fields": [ "PRODUCT_DESCRIPTION","PRODUCT_REFERENCE","PRODUCT_REFERENCE-NGRAM"] 
+                            }
                         }
                     }
                 }
             } 
         }
 
-        this.queryBody.bool.filter = filterBody;
+        this.queryBody.query.bool.filter = filterBody;
     }
 
     get getQueryBody(){
