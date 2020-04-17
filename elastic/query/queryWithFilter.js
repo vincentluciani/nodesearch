@@ -8,7 +8,7 @@ class queryWithFilter extends query
         var fb = new filtersBuilder(filters);
         var filterBody = fb.getFilterBody();
 
-// todo transform 
+// todo: the first two can be put in one 
         if (keywordtype == "PRODUCT_REFERENCE"){
             this.queryBody = 
             {

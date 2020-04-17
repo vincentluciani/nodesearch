@@ -1,3 +1,13 @@
 {
-    "source":"json"
+    "source":"json",
+    "queryBuildingParameters":
+    {
+        "allowedQueryParameters":["salesOrganization","status","distributionChannel","division"],
+        "pagingParameters":{
+            "pageNumber":"",
+            "pageSize":""
+        },
+        "columnParameters":["PRODUCT_DESCRIPTION","PRODUCT_REFERENCE"]
+    }
 }
+

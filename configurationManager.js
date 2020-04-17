@@ -7,6 +7,7 @@ class configurationManager {
         var configDevelopment = require('./config/config_development.json');
         var host;
         var port;
+        var queryBuildingParameters;
         this.init = function (app) {
             currentEnvironment = app.get('env') || 'production';
             if (currentEnvironment == 'production') {
@@ -17,6 +18,8 @@ class configurationManager {
             }
             host = configSpecificToEnvironment.elastic.host;
             port = configSpecificToEnvironment.elastic.port;
+            queryBuildingParameters = configCommon.queryBuildingParameters;
+
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
@@ -27,6 +30,9 @@ class configurationManager {
         this.getElasticPort = function () {
             return port;
         };
+        this.getQueryBuildingParameters = function () {
+            return queryBuildingParameters;
+        }
         this.init(app);
     }
 }
