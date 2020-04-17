@@ -8,6 +8,19 @@ class filterBuilder{
         this.filters=[];
         this.singleFilter={};
 
+        for ( var filterName in listOfFilters ){
+            if ( null != listOfFilters[filterName] && listOfFilters[filterName] != "")
+            {
+                var filterObject = {};
+                filterObject[filterName] = listOfFilters[filterName];
+                this.filters.push({
+                    "term": filterObject
+                    });
+                this.singleFilter={"term":filterObject};
+            }
+
+        }
+        /*
         if ( null != listOfFilters.status && listOfFilters.status != "" ){
             this.filters.push({
                 "term": {"status": listOfFilters.status}
@@ -35,7 +48,7 @@ class filterBuilder{
             });
             this.singleFilter={"term":{"division": listOfFilters.division}};
         }
-
+*/
         this.filter={};
 
         if (this.filters.length > 1){
