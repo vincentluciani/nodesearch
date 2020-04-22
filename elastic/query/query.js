@@ -1,5 +1,5 @@
 class query{
-    constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration){
+    constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams){
         
         this.elasticQueryBody = {  
             index: country,

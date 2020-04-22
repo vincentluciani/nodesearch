@@ -8,6 +8,8 @@ class configurationManager {
         var host;
         var port;
         var queryBuildingParameters;
+        var columnParameters;
+        
         this.init = function (app) {
             currentEnvironment = app.get('env') || 'production';
             if (currentEnvironment == 'production') {
@@ -19,7 +21,7 @@ class configurationManager {
             host = configSpecificToEnvironment.elastic.host;
             port = configSpecificToEnvironment.elastic.port;
             queryBuildingParameters = configCommon.queryBuildingParameters;
-
+            columnParameters = configCommon.queryBuildingParameters.columnParameters;
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
@@ -32,6 +34,9 @@ class configurationManager {
         };
         this.getQueryBuildingParameters = function () {
             return queryBuildingParameters;
+        }
+        this.getColumnParameters = function(){
+            return columnParameters;
         }
         this.init(app);
     }

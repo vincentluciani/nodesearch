@@ -17,6 +17,7 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
             filters[item] = req.query[item];
         }
     }
+
 /*
     var filters = {
         status : req.query.status || "",

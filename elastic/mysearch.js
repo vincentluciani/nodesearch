@@ -45,14 +45,21 @@ var elasticquery={
   }
 
 // TODO:
+var listOfColumns = configuration.getColumnParameters();
+var fullListOfColumnsWithNGrams=[];
+
+listOfColumns.forEach(element => { 
+  fullListOfColumnsWithNGrams.push(element);
+  fullListOfColumnsWithNGrams.push(element + "-NGRAM");
+});
 
 let myQueryBuilder;
 
-if (filters.salesOrganization!="" || filters.status!=""||filters.distributionChannel!=""||filters.division!="")
+if (filters.size>0)
 {
-  myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+  myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams);
 } else {
-  myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration);
+  myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams);
 }
   elasticquery = myQueryBuilder.getElasticQueryBody;  
   elasticquery.body = myQueryBuilder.getQueryBody;
@@ -74,7 +81,7 @@ client.search(elasticquery,function (error, response,status) {
         console.log(hit);
         resultString+=JSON.stringify(hit._source)+",";
       })
-      resultString+="]";
+      resultString=resultString.slice(0, -1)+"]";
     } else {
       resultString="[]";
     }
