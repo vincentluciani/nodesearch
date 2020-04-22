@@ -3,7 +3,7 @@ var elasticsearch=require('elasticsearch');
 var queryWithFilter = require('./query/queryWithFilter.js');
 var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 
-var mysearch = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
+var elasticSearchLauncher = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
 // todo: handle status, salesor, distributionchannel, division
 var resultString="[";
@@ -91,4 +91,4 @@ client.search(elasticquery,function (error, response,status) {
 
 }
 
-module.exports = mysearch;  
+module.exports = elasticSearchLauncher;  

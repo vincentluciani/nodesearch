@@ -1,5 +1,5 @@
 var express = require('express');
-var mysearch = require('./elastic/mysearch.js');
+var elasticSearchLauncher = require('./elastic/elasticSearchLauncher.js');
 
 var router = express.Router();
 
@@ -18,15 +18,7 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
         }
     }
 
-/*
-    var filters = {
-        status : req.query.status || "",
-        salesOrganization : req.query.salesOrganization || "",
-        distributionChannel : req.query.distributionChannel || "",
-        division : req.query.division || "",
-    };
-*/
-    var ms = new mysearch(req.params.keyword,
+    var ms = new elasticSearchLauncher(req.params.keyword,
         req.params.country,
         req.params.language,
         req.query.keywordType || "",
