@@ -7,7 +7,8 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
 
     var filters={};
 
-    var listOfQueryParameters = req.configuration.getQueryBuildingParameters();
+    var listOfQueryParameters = req.
+    configuration.getQueryBuildingParameters();
     for ( var item in req.query )
     {
         console.log("item in query:"+item);

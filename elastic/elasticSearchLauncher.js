@@ -66,6 +66,13 @@ if (filters.size>0)
   elasticquery = myQueryBuilder.getElasticQueryBody;  
   elasticquery.body = myQueryBuilder.getQueryBody;
 
+  var aggregationsBody = myQueryBuilder.getElasticAggregationsBody;
+
+  if ( null != aggregationsBody ){
+    elasticquery.body.aggs = aggregationsBody;
+  }
+
+
 /* todo: use in case of error */
 var elasticQueryValue=JSON.stringify(elasticquery);
 
@@ -93,10 +100,15 @@ client.search(elasticquery,function (error, response,status) {
         resultString=resultString.slice(0, -1)+"]";
         resultString+=",\"details\":{\"totalHits\":"+response.hits.total.value+"}}";
         resultJSON = JSON.parse(resultString);
+
+        if (null!=response.aggregations){
+          resultJSON.details.aggregations = response.aggregations;
+        }
       /*resultString = response.hits.hits;*/
 
     } else {
-      resultJSON="[]".parse();
+      resultString = "";
+      resultJSON=resultString.parse();
     }
       res.send(resultJSON);
     }
