@@ -32,7 +32,6 @@ class queryWithNoFilter extends query
             };
         }  
 
-      /*  return this.queryBody;*/
     }
     get getQueryBody(){
         return this.queryBody;

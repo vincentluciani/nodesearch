@@ -6,7 +6,7 @@ var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 var elasticSearchLauncher = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
 
 // todo: handle status, salesor, distributionchannel, division
-var resultString="[";
+
 
 var querybody;
 
@@ -32,17 +32,19 @@ var client = new elasticsearch.Client( {
     url
   ]
 });
-
+/*
 var elasticquery={  
     index: country,
     type: language,
-    filterPath : ['hits.hits._source'],
+    filterPath : ['hits.hits._source','hits.total.value'],
     body: querybody
   };
   if (null!=pageNumber&&null!=perPage){
     elasticquery.size = perPage;
     elasticquery.from = pageNumber;
   }
+  */
+ var elasticquery={};
 
 // TODO:
 var listOfColumns = configuration.getColumnParameters();
@@ -64,7 +66,7 @@ if (filters.size>0)
   elasticquery = myQueryBuilder.getElasticQueryBody;  
   elasticquery.body = myQueryBuilder.getQueryBody;
 
-
+/* todo: use in case of error */
 var elasticQueryValue=JSON.stringify(elasticquery);
 
 client.search(elasticquery,function (error, response,status) {
@@ -76,16 +78,27 @@ client.search(elasticquery,function (error, response,status) {
       console.log(response);
       console.log("--- Hits ---");
 
-      if (null!=response.hits&&null!=response.hits.hits&&response.hits.hits.length>=1){
-      response.hits.hits.forEach(function(hit){
-        console.log(hit);
-        resultString+=JSON.stringify(hit._source)+",";
-      })
-      resultString=resultString.slice(0, -1)+"]";
+      var resultJSON={};
+      var resultString="";
+
+      if (null!=response.hits&&null!=response.hits.hits&&response.hits.hits.length>=1)
+      { 
+        resultString="{\"items\":[";
+        response.hits.hits.forEach(function(hit)
+        {
+          console.log(hit);
+          resultString+=JSON.stringify(hit._source)+",";
+        });
+      
+        resultString=resultString.slice(0, -1)+"]";
+        resultString+=",\"details\":{\"totalHits\":"+response.hits.total.value+"}}";
+        resultJSON = JSON.parse(resultString);
+      /*resultString = response.hits.hits;*/
+
     } else {
-      resultString="[]";
+      resultJSON="[]".parse();
     }
-      res.send(resultString);
+      res.send(resultJSON);
     }
 });
 

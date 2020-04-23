@@ -4,7 +4,7 @@ class query{
         this.elasticQueryBody = {  
             index: country,
             type: language,
-            filterPath : ['hits.hits._source']          
+            filterPath : ['hits.hits._source','hits.total.value']          
           };
         
           if (null!=pageNumber&&null!=perPage){
@@ -16,8 +16,4 @@ class query{
         return this.elasticQueryBody;
     }
 }
-
-
-
 module.exports = query
-// body: querybody

@@ -8,9 +8,6 @@ class queryWithFilter extends query
         var fb = new filtersBuilder(filters);
         var filterBody = fb.getFilterBody();
 
-// todo: the first two can be put in one 
-
-
         var keywordTypeNgram = keywordtype + "-NGRAM";
         if (null != keywordtype && keywordtype != ""){
             this.queryBody = 
