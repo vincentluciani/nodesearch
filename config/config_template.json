@@ -1,0 +1,12 @@
+{
+  "elastic":{
+    "host": "localhost",
+    "port":"9200"
+  },
+  "sslOptions":{
+    "key": "",
+    "ca":"",
+    "cert": ""
+  }
+
+}
