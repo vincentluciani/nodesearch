@@ -1,14 +1,5 @@
 class aggregationsBuilder{
 
-    /*
-        "aggs" : {
-        "salesOrganization" : {
-            "terms" : { "field" : "salesOrganization" } 
-        },
-                "genres2" : {
-            "terms" : { "field" : "sdfsd" } 
-        },
-    }*/
     constructor(listOfAggregates){
 
         var aggregates={};
