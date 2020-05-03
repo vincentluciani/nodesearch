@@ -16,7 +16,7 @@ var logManager = require('./logManager.js');
 var configurationManager = require('./configurationManager.js');
 var createError = require('createerror');
 
-var app = express();
+var app =   express();
 
 var configuration = new configurationManager(app);
 
@@ -50,18 +50,22 @@ else {
   };
 }
 
+/*https.createServer(options, function (req, res) {
+  res.writeHead(200);
+  res.end("hello world\n");
+}).listen(8000);*/
 
-var httpsServer = https.createServer(app,options);
-var httpServer = http.createServer(app);
+var httpsServer = https.createServer(options,app);
+/*var httpServer = http.createServer(app);*/
 
 app.use('/', function (req,res,next){
   req.configuration=configuration;
   next();}
   ,routers);
 
- httpsServer.listen(3331);
+ httpsServer.listen(8000);
 
- httpServer.listen(3333);
+/* httpServer.listen(3333);*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
