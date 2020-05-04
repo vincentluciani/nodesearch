@@ -29,14 +29,14 @@ var key = configuration.getPrivateKey();
 var cert = configuration.getCertificate();
 var bundle = configuration.getBundle();
 
-var keyFile = fs.readFileSync(configuration.getPrivateKey());
-var certFile = fs.readFileSync(configuration.getCertificate());
+var keyFile = fs.readFileSync(key);
+var certFile = fs.readFileSync(cert);
 var bundleFile;
 var options;
 
-if ( configuration.getBundle() != "" )
+if ( bundle != "" )
 {
-  bundleFile = fs.readFileSync(configuration.getBundle);  
+  bundleFile = fs.readFileSync(bundle);  
   options = {
     key: keyFile,
     ca: bundleFile,
@@ -63,7 +63,9 @@ app.use('/', function (req,res,next){
   next();}
   ,routers);
 
- httpsServer.listen(8000);
+  var port = configuration.getNodePort();
+
+ httpsServer.listen(port);
 
 /* httpServer.listen(3333);*/
 // catch 404 and forward to error handler

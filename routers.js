@@ -3,12 +3,12 @@ var elasticSearchLauncher = require('./elastic/elasticSearchLauncher.js');
 
 var router = express.Router();
 
-router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
+var routerpath=
+router.get('/:country/:language/search/',function (req,res){
 
     var filters={};
 
-    var listOfQueryParameters = req.
-    configuration.getQueryBuildingParameters();
+    var listOfQueryParameters = req.configuration.getQueryBuildingParameters();
     for ( var item in req.query )
     {
         console.log("item in query:"+item);
@@ -19,12 +19,12 @@ router.get('/:country/:language/search/api/guided/:keyword',function (req,res){
         }
     }
 
-    var ms = new elasticSearchLauncher(req.params.keyword,
+    var ms = new elasticSearchLauncher(req.query.term,
         req.params.country,
         req.params.language,
         req.query.keywordType || "",
-        parseInt(req.query.p,10) || 0,
-        parseInt(req.query.perpage,10) || 6,
+        parseInt(req.query.offset,10) || 0,
+        parseInt(req.query.pageSize,10) || 6,
         filters,
         req.configuration,
         res);

@@ -13,6 +13,7 @@ class configurationManager {
         var certificate;
         var privateKey;
         var bundle;
+        var nodePort;
         
         this.init = function (app) {
             currentEnvironment = app.get('env') || 'production';
@@ -30,7 +31,7 @@ class configurationManager {
             certificate = configSpecificToEnvironment.sslOptions.cert;
             privateKey = configSpecificToEnvironment.sslOptions.key;
             bundle = configSpecificToEnvironment.sslOptions.ca;
-
+            nodePort = configCommon.port;
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
@@ -58,6 +59,9 @@ class configurationManager {
         }
         this.getBundle = function(){
             return bundle;
+        }
+        this.getNodePort = function(){
+            return nodePort;
         }
         this.init(app);
 

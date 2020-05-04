@@ -39,8 +39,8 @@ if (this.filters.length > 1) -->
         this.filter={};
 
         if (this.filters.length > 1){
-            this.filter= { "and": {
-                "filters": this.filters
+            this.filter= { "bool": {
+                "must": this.filters
                         }};
         } else if (this.filters.length == 1){
             this.filter= this.singleFilter;

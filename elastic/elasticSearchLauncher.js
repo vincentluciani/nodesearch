@@ -58,7 +58,7 @@ listOfColumns.forEach(element => {
 
 let myQueryBuilder;
 
-if (filters.size>0)
+if (Object.keys(filters).length>0)
 {
   myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams);
 } else {

@@ -29,7 +29,7 @@ class elasticResultAnalyzer{
   
       } else {
         resultString = "";
-        this.resultJSON=resultString.parse();
+        this.resultJSON={};
       }
     }
 
