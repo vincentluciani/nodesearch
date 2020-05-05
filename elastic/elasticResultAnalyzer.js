@@ -10,7 +10,7 @@ class elasticResultAnalyzer{
           resultString="{\"items\":[";
           response.hits.hits.forEach(function(hit)
           {
-            console.log(hit);
+            /*console.log(hit);*/
             resultString+=JSON.stringify(hit._source)+",";
           });
         

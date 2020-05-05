@@ -17,13 +17,30 @@ class queryWithFilter extends query
                 "query":
                 {
                     "bool": {
-                        "must": {
+                      /*  "must": {
                             "query_string":
                             {
                                 "query":keyword,
                                 "fields": [ keywordtype,keywordTypeNgram] 
                             }
-                        }
+                        }*/
+                        "should" :[ 
+                            {	
+                             "query_string":
+                             {
+                                 "query":keyword,
+                                 "fields": [ keywordtype,keywordTypeNgram]
+                             }
+                            },
+                            {	
+                                "query_string":
+                                {
+                                    "query":"\""+keyword+"\"^"+configuration.getProximity(),
+                                    "fields": [ keywordtype,keywordTypeNgram],
+                                    "boost":2
+                                }
+                            }
+                        ]
                     }
                 }
             } ;
@@ -35,13 +52,31 @@ class queryWithFilter extends query
                 "query":
                 {
                     "bool": {
-                        "must": {
+                        /*"must": {
                             "query_string":
                             {
                                 "query":keyword,
                                 "fields": fullListOfColumnsWithNGrams
                             }
-                        }
+                        }*/
+                        "should" :[ 
+                            {	
+                             "query_string":
+                             {
+                                 "query":keyword,
+                                 "fields": fullListOfColumnsWithNGrams
+                             }
+                            },
+                            ,
+                            {	
+                                "query_string":
+                                {
+                                    "query":"\""+keyword+"\"^"+configuration.getProximity(),
+                                    "fields": fullListOfColumnsWithNGrams,
+                                    "boost":2
+                                }
+                            }
+                        ]
                     }
                 }
             } 
