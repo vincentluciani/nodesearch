@@ -82,7 +82,7 @@ client.search(elasticquery,function (error, response,status) {
     var resultJSON={};
     if (error){
         console.error("search error: "+error+" query:"+elasticquery)
-        resultJSON=resultString.parse();
+        resultJSON={};
     }
     else {
       var myElasticSearchAnalyzer = new elasticSearchAnalyzer(response);

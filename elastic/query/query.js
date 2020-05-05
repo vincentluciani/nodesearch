@@ -14,7 +14,7 @@ class query{
                 this.elasticQueryBody.from = pageNumber;
             }
         
-        var ab = new aggregationsBuilder(configuration.getAggregations());
+        var ab = new aggregationsBuilder(configuration.getAggregations(),configuration.getSubAggregations());
         this.aggregationsBody = ab.getAggregationBody();
     }
     get getElasticQueryBody(){

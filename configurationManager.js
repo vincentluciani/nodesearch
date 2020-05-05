@@ -10,10 +10,12 @@ class configurationManager {
         var queryBuildingParameters;
         var columnParameters;
         var aggregations;
+        var subAggregations;
         var certificate;
         var privateKey;
         var bundle;
         var nodePort;
+
         
         this.init = function (app) {
             currentEnvironment = app.get('env') || 'production';
@@ -28,6 +30,7 @@ class configurationManager {
             queryBuildingParameters = configCommon.queryBuildingParameters;
             columnParameters = configCommon.queryBuildingParameters.columnParameters;
             aggregations = configCommon.queryBuildingParameters.aggregations;
+            subAggregations = configCommon.queryBuildingParameters.subAggregations;
             certificate = configSpecificToEnvironment.sslOptions.cert;
             privateKey = configSpecificToEnvironment.sslOptions.key;
             bundle = configSpecificToEnvironment.sslOptions.ca;
@@ -50,6 +53,9 @@ class configurationManager {
         }
         this.getAggregations = function(){
             return aggregations;
+        }
+        this.getSubAggregations = function(){
+            return subAggregations;
         }
         this.getPrivateKey = function(){
             return privateKey;

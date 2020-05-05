@@ -9,7 +9,8 @@
             "pageSize":""
         },
         "columnParameters":["question","answer"],
-        "aggregations":["category"]
+        "aggregations":["category"],
+        "subAggregations":["subCategory"]
     }
 }
 
