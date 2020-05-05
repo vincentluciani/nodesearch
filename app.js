@@ -60,6 +60,7 @@ var httpsServer = https.createServer(options,app);
 
 app.use('/', function (req,res,next){
   req.configuration=configuration;
+  req.lm = lm;
   next();}
   ,routers);
 
@@ -77,7 +78,6 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     
     lm.logger.error(err.message);
-  
   });
 
 module.exports = app;

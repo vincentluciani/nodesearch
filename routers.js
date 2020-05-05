@@ -11,7 +11,7 @@ router.get('/:country/:language/search/',function (req,res){
     var listOfQueryParameters = req.configuration.getQueryBuildingParameters();
     for ( var item in req.query )
     {
-        console.log("item in query:"+item);
+        /*console.log("item in query:"+item);*/
         var isItemInListOfQueryParameters = listOfQueryParameters.allowedQueryParameters.includes(item);
         
         if (isItemInListOfQueryParameters){
@@ -27,7 +27,8 @@ router.get('/:country/:language/search/',function (req,res){
         parseInt(req.query.pageSize,10) || 6,
         filters,
         req.configuration,
-        res);
+        res,
+        req.lm);
 
 
 

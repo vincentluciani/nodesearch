@@ -4,7 +4,7 @@ var queryWithFilter = require('./query/queryWithFilter.js');
 var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 var elasticSearchAnalyzer = require('./elasticResultAnalyzer.js');
 
-var elasticSearchLauncher = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res){
+var elasticSearchLauncher = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res,lm){
 
 // todo: handle status, salesor, distributionchannel, division
 
@@ -73,23 +73,29 @@ if (Object.keys(filters).length>0)
     elasticquery.body.aggs = aggregationsBody;
   }
 
-
 /* todo: use in case of error */
 var elasticQueryValue=JSON.stringify(elasticquery);
 
-client.search(elasticquery,function (error, response,status) {
-    var resultString = "";
-    var resultJSON={};
-    if (error){
-        console.error("search error: "+error+" query:"+elasticquery)
-        resultJSON={};
-    }
-    else {
-      var myElasticSearchAnalyzer = new elasticSearchAnalyzer(response);
-      resultJSON = myElasticSearchAnalyzer.getResponse();
-    }
-    res.send(resultJSON);
-});
+try{
+  
+  client.search(elasticquery,function (error, response,status) {
+      var resultString = "";
+      var resultJSON={};
+      if (error){
+        lm.logger.error("search error: "+error+" query:"+elasticquery)
+          resultJSON={};
+      }
+      else {
+        var myElasticSearchAnalyzer = new elasticSearchAnalyzer(response);
+        resultJSON = myElasticSearchAnalyzer.getResponse();
+      }
+      res.send(resultJSON);
+  });
+} catch (e){
+  lm.logger.error("search error: "+e+" query:"+elasticquery);
+  var resultJSON={};
+  res.send(resultJSON);
+}
 
 }
 

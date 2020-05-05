@@ -2,10 +2,6 @@ class elasticResultAnalyzer{
 
     constructor(response){
 
-        console.log("--- Response ---");
-        console.log(response);
-        console.log("--- Hits ---");
-  
         this.resultJSON={};
         var resultString="";
   

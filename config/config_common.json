@@ -1,6 +1,7 @@
 {
     "source":"json",
     "port":"8000",
+    "proximity":"10",
     "queryBuildingParameters":
     {
         "allowedQueryParameters":["category","subCategory"],

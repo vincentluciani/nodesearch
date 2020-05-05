@@ -15,6 +15,7 @@ class configurationManager {
         var privateKey;
         var bundle;
         var nodePort;
+        var proximity;
 
         
         this.init = function (app) {
@@ -35,6 +36,7 @@ class configurationManager {
             privateKey = configSpecificToEnvironment.sslOptions.key;
             bundle = configSpecificToEnvironment.sslOptions.ca;
             nodePort = configCommon.port;
+            proximity = configCommon.proximity;
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
@@ -68,6 +70,9 @@ class configurationManager {
         }
         this.getNodePort = function(){
             return nodePort;
+        }
+        this.getProximity = function(){
+            return proximity;
         }
         this.init(app);
 
