@@ -11,6 +11,10 @@ class elasticResultAnalyzer{
           response.hits.hits.forEach(function(hit)
           {
             /*console.log(hit);*/
+            if (hit.highlight){
+              hit._source.highlight = hit.highlight;
+              console.log(hit.highlight);
+            }
             resultString+=JSON.stringify(hit._source)+",";
           });
         

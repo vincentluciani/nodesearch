@@ -6,7 +6,7 @@ class query{
         this.elasticQueryBody = {  
             index: country,
             type: language,
-            filterPath : ['hits.hits._source','hits.total.value','aggregations']          
+            filterPath : ['hits.hits._source','hits.total.value','aggregations','hits.hits.highlight']          
           };
         
           if (null!=pageNumber&&null!=perPage){
@@ -16,9 +16,22 @@ class query{
         
         var ab = new aggregationsBuilder(configuration.getAggregations(),configuration.getSubAggregations());
         this.aggregationsBody = ab.getAggregationBody();
+
+        this.highlightBody = {
+                "fields" :[ {
+                    "question" : {}
+                },
+                {
+                    "answer" : {}
+                }]
+        }
     }
     get getElasticQueryBody(){
         return this.elasticQueryBody;
+    }
+
+    get getHighlightBody(){
+        return this.highlightBody;
     }
 
     get getElasticAggregationsBody(){

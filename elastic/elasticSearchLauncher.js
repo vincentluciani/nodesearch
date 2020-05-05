@@ -68,9 +68,14 @@ if (Object.keys(filters).length>0)
   elasticquery.body = myQueryBuilder.getQueryBody;
 
   var aggregationsBody = myQueryBuilder.getElasticAggregationsBody;
+  var highlightBody = myQueryBuilder.getHighlightBody;
 
   if ( null != aggregationsBody ){
     elasticquery.body.aggs = aggregationsBody;
+  }
+
+  if ( null != highlightBody ){
+    elasticquery.body.highlight = highlightBody;
   }
 
 /* todo: use in case of error */
