@@ -18,6 +18,8 @@ var createError = require('createerror');
 
 var app =   express();
 
+
+
 var configuration = new configurationManager(app);
 
 var lm = new logManager(configuration);

@@ -27,16 +27,36 @@ class configurationManager {
                 configSpecificToEnvironment = configDevelopment;
             }
             host = configSpecificToEnvironment.elastic.host;
-            port = configSpecificToEnvironment.elastic.port;
+
+            
+            port = configSpecificToEnvironment.elastic.port
+            if (null == host || host == ""){
+                console.error("host not defined");
+            };
+            if (null == port || port == ""){
+                console.error("port not defined");
+            };
             queryBuildingParameters = configCommon.queryBuildingParameters;
+            if (null == queryBuildingParameters || queryBuildingParameters.length == 0){
+                console.error("queryBuildingParameters not defined");
+            };
             columnParameters = configCommon.queryBuildingParameters.columnParameters;
+            if (null == columnParameters || columnParameters.length == 0){
+                console.error("columnParameters not defined");
+            };
             aggregations = configCommon.queryBuildingParameters.aggregations;
             subAggregations = configCommon.queryBuildingParameters.subAggregations;
             certificate = configSpecificToEnvironment.sslOptions.cert;
             privateKey = configSpecificToEnvironment.sslOptions.key;
             bundle = configSpecificToEnvironment.sslOptions.ca;
             nodePort = configCommon.port;
+            if (null == nodePort || nodePort == ""){
+                console.error("nodePort not defined");
+            };
             proximity = configCommon.proximity;
+            if (null == proximity){
+                console.error("poproximityrt not defined");
+            };
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
