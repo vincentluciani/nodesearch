@@ -1,7 +1,7 @@
 var aggregationsBuilder = require('./aggregationsBuilder.js');
 
 class query{
-    constructor(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams){
+    constructor(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,fullListOfColumnsWithNGrams){
         
         this.elasticQueryBody = {  
             index: country,
@@ -9,9 +9,9 @@ class query{
             filterPath : ['hits.hits._source','hits.total.value','aggregations','hits.hits.highlight']          
           };
         
-          if (null!=pageNumber&&null!=perPage){
-                this.elasticQueryBody.size = perPage;
-                this.elasticQueryBody.from = pageNumber;
+          if (null!=offset&&null!=pageSize){
+                this.elasticQueryBody.size = pageSize;
+                this.elasticQueryBody.from = offset;
             }
         
         var ab = new aggregationsBuilder(configuration.getAggregations(),configuration.getSubAggregations());

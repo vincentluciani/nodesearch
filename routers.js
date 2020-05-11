@@ -1,9 +1,39 @@
 var express = require('express');
 var elasticSearchLauncher = require('./elastic/elasticSearchLauncher.js');
-
+var fs = require('fs');
 var router = express.Router();
 
-var routerpath=
+/*var routerpath=*/
+router.get('/test/:file',function (req,res){
+
+    var filters={};
+
+    console.log("test started");
+
+
+    var path="C:\\Dysk D\\test\\htmlcss\\"+req.params.file;
+    var contentType;
+
+    if ( req.params.file.search("html")>=0)
+    {
+        contentType="text/html";
+    } else
+    {
+        contentType="test/plain";
+    }
+
+    fs.readFile(path,"utf8" ,function(err, contents){
+        //console.log(contents);
+        res.writeHead(200, {'Content-Type': contentType});
+        //res.send(contents);
+        res.write(contents);
+        res.end();
+        });
+
+   // res.send(htmlPage);
+
+})
+
 router.get('/:country/:language/search/',function (req,res){
 
     var filters={};
@@ -11,7 +41,7 @@ router.get('/:country/:language/search/',function (req,res){
     var listOfQueryParameters = req.configuration.getQueryBuildingParameters();
     for ( var item in req.query )
     {
-        /*console.log("item in query:"+item);*/
+
         var isItemInListOfQueryParameters = listOfQueryParameters.allowedQueryParameters.includes(item);
         
         if (isItemInListOfQueryParameters){
@@ -33,5 +63,7 @@ router.get('/:country/:language/search/',function (req,res){
 
 
 })
+
+
 
 module.exports = router;

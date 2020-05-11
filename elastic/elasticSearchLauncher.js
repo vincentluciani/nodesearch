@@ -4,7 +4,7 @@ var queryWithFilter = require('./query/queryWithFilter.js');
 var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 var elasticSearchAnalyzer = require('./elasticResultAnalyzer.js');
 
-var elasticSearchLauncher = function(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,res,lm){
+var elasticSearchLauncher = function(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,res,lm){
 
 // todo: handle status, salesor, distributionchannel, division
 
@@ -60,9 +60,9 @@ let myQueryBuilder;
 
 if (Object.keys(filters).length>0)
 {
-  myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams);
+  myQueryBuilder = new queryWithFilter(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,fullListOfColumnsWithNGrams);
 } else {
-  myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,pageNumber,perPage,filters,configuration,fullListOfColumnsWithNGrams);
+  myQueryBuilder = new queryWithNoFilter(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,fullListOfColumnsWithNGrams);
 }
   elasticquery = myQueryBuilder.getElasticQueryBody;  
   elasticquery.body = myQueryBuilder.getQueryBody;
