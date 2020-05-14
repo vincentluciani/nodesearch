@@ -3,7 +3,8 @@ Configuration:
 npm install express
 npm install winston
 */
-
+// https://www.vince.com:8000/vince/knowledge/search/?term=add%20a%20foreign%20key
+// https://www.vince.com:8000/test/searchresults.html?term=*&category=PHP&offset=0&pageSize=10//
 //http://localhost:3333/us/en/search/api/guided/LC1D09M7?keywordType=PRODUCT_REFERENCE
 //http://localhost:3333/at/de/search/api/guided/PHASENTRENNER?keywordType=PRODUCT_DESCRIPTION&p=9&perpage=2
 var fs = require('fs');

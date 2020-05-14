@@ -42,17 +42,17 @@ router.get('/:country/:language/search/',function (req,res){
     for ( var item in req.query )
     {
 
-        var isItemInListOfQueryParameters = listOfQueryParameters.allowedQueryParameters.includes(item);
+        var isItemInListOfQueryParameters = listOfQueryParameters.allowedQueryParameters.includes(htmlEscape(item));
         
         if (isItemInListOfQueryParameters){
             filters[item] = req.query[item];
         }
     }
 
-    var ms = new elasticSearchLauncher(req.query.term,
-        req.params.country,
-        req.params.language,
-        req.query.keywordType || "",
+    var ms = new elasticSearchLauncher(htmlEscape(req.query.term),
+    htmlEscape(req.params.country),
+        htmlEscape(req.params.language),
+        htmlEscape(req.query.keywordType || ""),
         parseInt(req.query.offset,10) || 0,
         parseInt(req.query.pageSize,10) || 6,
         filters,
@@ -64,6 +64,13 @@ router.get('/:country/:language/search/',function (req,res){
 
 })
 
-
+function htmlEscape(text) {
+    var finalText=text. replace(/&/g, '&amp;');
+    finalText=finalText.replace(/&/g, '&amp;').
+    replace(/</g, '&lt;'). // it's not neccessary to escape >
+    replace(/"/g, '&quot;').
+    replace(/'/g, '&#039;');
+    return finalText;
+    }
 
 module.exports = router;
