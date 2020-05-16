@@ -8,9 +8,6 @@ router.get('/test/:file',function (req,res){
 
     var filters={};
 
-    console.log("test started");
-
-
     var path="C:\\Dysk D\\test\\htmlcss\\"+req.params.file;
     var contentType;
 
