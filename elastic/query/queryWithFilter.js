@@ -8,8 +8,6 @@ class queryWithFilter extends query
         var fb = new filtersBuilder(filters);
         var filterBody = fb.getFilterBody();
 
-       /* keyword="("+keyword+")^"+configuration.getProximity();*/
-
         var keywordTypeNgram = keywordtype + "-NGRAM";
         if (null != keywordtype && keywordtype != ""){
             this.queryBody = 
@@ -17,13 +15,6 @@ class queryWithFilter extends query
                 "query":
                 {
                     "bool": {
-                      /*  "must": {
-                            "query_string":
-                            {
-                                "query":keyword,
-                                "fields": [ keywordtype,keywordTypeNgram] 
-                            }
-                        }*/
                         "should" :[ 
                             {	
                              "query_string":
@@ -52,13 +43,6 @@ class queryWithFilter extends query
                 "query":
                 {
                     "bool": {
-                        /*"must": {
-                            "query_string":
-                            {
-                                "query":keyword,
-                                "fields": fullListOfColumnsWithNGrams
-                            }
-                        }*/
                         "should" :[ 
                             {	
                              "query_string":

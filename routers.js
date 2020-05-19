@@ -3,10 +3,8 @@ var elasticSearchLauncher = require('./elastic/elasticSearchLauncher.js');
 var fs = require('fs');
 var router = express.Router();
 
-/*var routerpath=*/
-router.get('/test/:file',function (req,res){
 
-    var filters={};
+router.get('/test/:file',function (req,res){
 
     var path="C:\\Dysk D\\test\\htmlcss\\"+req.params.file;
     var contentType;
@@ -20,25 +18,25 @@ router.get('/test/:file',function (req,res){
     }
 
     fs.readFile(path,"utf8" ,function(err, contents){
-        //console.log(contents);
         res.writeHead(200, {'Content-Type': contentType});
-        //res.send(contents);
         res.write(contents);
         res.end();
         });
-
-   // res.send(htmlPage);
-
 })
 
 router.get('/:country/:language/search/',function (req,res){
+
+    if ( req.applicationCache.has( req.originalUrl ) == true ){
+        var valueFromCache = req.applicationCache.get( req.originalUrl );
+        res.send(valueFromCache);
+        return;
+    }
 
     var filters={};
 
     var listOfQueryParameters = req.configuration.getQueryBuildingParameters();
     for ( var item in req.query )
     {
-
         var isItemInListOfQueryParameters = listOfQueryParameters.allowedQueryParameters.includes(htmlEscape(item));
         
         if (isItemInListOfQueryParameters){
@@ -55,11 +53,22 @@ router.get('/:country/:language/search/',function (req,res){
         filters,
         req.configuration,
         res,
-        req.lm);
-
-
-
+        req.lm,
+        req.applicationCache,
+        req.originalUrl);
 })
+
+router.get('/api/utils/cache/statistics',function (req,res){
+    var cacheStatistics = req.applicationCache.getStats();
+    res.send(cacheStatistics);
+})
+
+router.get('/api/utils/cache/flush',function (req,res){
+    req.applicationCache.flushAll();
+    var cacheStatistics =  req.applicationCache.getStats();
+    res.send(cacheStatistics);
+})
+
 
 function htmlEscape(text) {
     var finalText=text. replace(/&/g, '&amp;');

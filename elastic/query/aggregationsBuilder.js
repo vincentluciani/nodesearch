@@ -4,14 +4,6 @@ class aggregationsBuilder{
 
         var aggregates={};
 
-        /*listOfAggregates.forEach(function(aggregateName)
-        {
-            if ( null != aggregateName && aggregateName != "")
-            {
-                aggregates[aggregateName] = {};
-                aggregates[aggregateName].terms =  {"field":aggregateName};  
-            }
-        });*/
         for (var i=0; i< listOfAggregates.length ;i++){
             var aggregateName = listOfAggregates[i];
             if ( null != aggregateName && aggregateName != "")

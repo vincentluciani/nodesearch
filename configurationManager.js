@@ -16,7 +16,7 @@ class configurationManager {
         var bundle;
         var nodePort;
         var proximity;
-
+        var cacheConfiguration;
         
         this.init = function (app) {
             currentEnvironment = app.get('env') || 'production';
@@ -32,18 +32,18 @@ class configurationManager {
             port = configSpecificToEnvironment.elastic.port
             if (null == host || host == ""){
                 console.error("host not defined");
-            };
+            }
             if (null == port || port == ""){
                 console.error("port not defined");
-            };
+            }
             queryBuildingParameters = configCommon.queryBuildingParameters;
             if (null == queryBuildingParameters || queryBuildingParameters.length == 0){
                 console.error("queryBuildingParameters not defined");
-            };
+            }
             columnParameters = configCommon.queryBuildingParameters.columnParameters;
             if (null == columnParameters || columnParameters.length == 0){
                 console.error("columnParameters not defined");
-            };
+            }
             aggregations = configCommon.queryBuildingParameters.aggregations;
             subAggregations = configCommon.queryBuildingParameters.subAggregations;
             certificate = configSpecificToEnvironment.sslOptions.cert;
@@ -52,11 +52,13 @@ class configurationManager {
             nodePort = configCommon.port;
             if (null == nodePort || nodePort == ""){
                 console.error("nodePort not defined");
-            };
+            }
             proximity = configCommon.proximity;
             if (null == proximity){
                 console.error("poproximityrt not defined");
-            };
+            }
+
+            cacheConfiguration = configCommon.cacheConfiguration;
         };
         this.getCurrentEnvironment = function () {
             return currentEnvironment;
@@ -93,6 +95,9 @@ class configurationManager {
         }
         this.getProximity = function(){
             return proximity;
+        }
+        this.getCacheConfiguration = function(){
+            return cacheConfiguration;
         }
         this.init(app);
 

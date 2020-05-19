@@ -13,11 +13,6 @@ class queryWithNoFilter extends query
         if (null != keywordtype && keywordtype != ""){
             this.queryBody={
                 query: {
-                    /*query_string: 
-                    {
-                        query: keyword,
-                        fields : [keywordtype,keywordTypeNgram] 
-                    }*/
                     "bool": {
                     "should" :[ 
                         {	
@@ -41,12 +36,6 @@ class queryWithNoFilter extends query
         } else {
             this.queryBody={
                 query: {
-                    /*
-                    query_string: 
-                    {
-                        query: keyword,
-                        fields : fullListOfColumnsWithNGrams
-                    }*/
                     "bool": {
                     "should" :[ 
                         {	

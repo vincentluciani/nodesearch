@@ -1,23 +1,5 @@
 class filterBuilder{
 
-    /* 
-todo
-if (this.filters.length > 1) -->
-
-"filter":
-			{
-				"bool": 
-				{
-					"must":
-					[
-						{"term":{"salesOrganization": "2010"}},
-                    	{"term":{"distributionChannel" : "51"}}
-                    ]
-                }
-	
-            }
-            
-    */
     constructor(listOfFilters){
 
         this.filters=[];

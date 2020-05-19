@@ -12,6 +12,15 @@
         "columnParameters":["question","answer"],
         "aggregations":["category"],
         "subAggregations":["subCategory"]
+    },
+    "cacheConfiguration":
+    {
+        "stdTTL":0,
+        "checkperiod":0,
+        "useClones":true,
+        "deleteOnExpire":true,
+        "enableLegacyCallbacks":false,
+        "maxKeys":-1
     }
 }
 

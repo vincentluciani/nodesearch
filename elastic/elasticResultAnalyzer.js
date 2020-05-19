@@ -23,7 +23,6 @@ class elasticResultAnalyzer{
           if (null!=response.aggregations){
             this.resultJSON.details.aggregations = response.aggregations;
           }
-        /*resultString = response.hits.hits;*/
   
       } else {
         resultString = "";

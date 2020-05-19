@@ -1,15 +1,11 @@
-//var client = require('./elasticconnection.js');
+
 var elasticsearch=require('elasticsearch');
 var queryWithFilter = require('./query/queryWithFilter.js');
 var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 var elasticSearchAnalyzer = require('./elasticResultAnalyzer.js');
 
-var elasticSearchLauncher = function(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,res,lm){
 
-// todo: handle status, salesor, distributionchannel, division
-
-
-var querybody;
+var elasticSearchLauncher = function(keyword,country,language,keywordtype,offset,pageSize,filters,configuration,res,lm,applicationCache,originalURL){
 
 var host = configuration.getElasticHost();
 var port = configuration.getElasticPort();
@@ -33,21 +29,9 @@ var client = new elasticsearch.Client( {
     url
   ]
 });
-/*
-var elasticquery={  
-    index: country,
-    type: language,
-    filterPath : ['hits.hits._source','hits.total.value'],
-    body: querybody
-  };
-  if (null!=pageNumber&&null!=perPage){
-    elasticquery.size = perPage;
-    elasticquery.from = pageNumber;
-  }
-  */
- var elasticquery={};
 
-// TODO:
+var elasticquery={};
+
 var listOfColumns = configuration.getColumnParameters();
 var fullListOfColumnsWithNGrams=[];
 
@@ -78,13 +62,10 @@ if (Object.keys(filters).length>0)
     elasticquery.body.highlight = highlightBody;
   }
 
-/* todo: use in case of error */
-var elasticQueryValue=JSON.stringify(elasticquery);
 
 try{
   
   client.search(elasticquery,function (error, response,status) {
-      var resultString = "";
       var resultJSON={};
       if (error){
         lm.logger.error("search error: "+error+" query:"+elasticquery)
@@ -95,6 +76,8 @@ try{
         resultJSON = myElasticSearchAnalyzer.getResponse();
       }
       res.send(resultJSON);
+      applicationCache.set( originalURL, resultJSON )
+      
   });
 } catch (e){
   lm.logger.error("search error: "+e+" query:"+elasticquery);
