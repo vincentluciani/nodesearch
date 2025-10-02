@@ -5,7 +5,6 @@ class query{
         
         this.elasticQueryBody = {  
             index: country,
-            type: language,
             filterPath : ['hits.hits._source','hits.total.value','aggregations','hits.hits.highlight']          
           };
         
