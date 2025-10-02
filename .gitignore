@@ -1,2 +1,4 @@
 config/
 logs/
+key.pem
+crt.pem

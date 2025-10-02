@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  # nodeapp:
+  #   build: .
+  #   container_name: nodeapp
+  #   environment:
+  #     - NODE_ENV=development
+  #     - ES_HOST=http://elasticsearch:9200   # Node connects to Elasticsearch here
+  #   ports:
+  #     - "8001:8002"  # Node app available at http://localhost:3001
+  #   depends_on:
+  #     - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m   # lightweight for MacBook Air
+      - xpack.security.enabled=false     # disable auth for dev
+    ports:
+      - "9200:9200"  # Elasticsearch available at http://localhost:9200
+    volumes:
+      - es_data:/Users/vincentluciani/Software/elastic
+
+volumes:
+  es_data:
+    driver: local

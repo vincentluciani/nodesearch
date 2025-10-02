@@ -1,6 +1,6 @@
 {
     "source":"json",
-    "port":"8000",
+    "port":"8001",
     "proximity":"10",
     "queryBuildingParameters":
     {
