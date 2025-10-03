@@ -3,7 +3,7 @@
 # Usage: ./load_values_complete.sh <url_of_html_page>
 URL="$1"
 ES_HOST=${ES_HOST:-http://localhost:9200}
-INDEX=${INDEX:-us}
+INDEX=${INDEX:-vince}
 
 if [ -z "$URL" ]; then
   echo "Usage: $0 <url_of_html_page>"

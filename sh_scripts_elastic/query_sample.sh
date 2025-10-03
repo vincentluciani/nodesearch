@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ES_HOST="http://localhost:9200"
-INDEX="us"
+INDEX="vince"
 TERM="array"
 SIZE=10
 

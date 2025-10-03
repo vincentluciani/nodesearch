@@ -2,3 +2,4 @@ config/
 logs/
 key.pem
 crt.pem
+node_modules/

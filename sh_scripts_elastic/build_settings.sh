@@ -1,5 +1,5 @@
     #!/bin/bash
-        curl -X PUT 'http://localhost:9200/us' -H 'Content-Type: application/json' -d '
+        curl -X PUT 'http://localhost:9200/vince' -H 'Content-Type: application/json' -d '
         {
           "settings": {
             "analysis": {

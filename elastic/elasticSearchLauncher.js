@@ -1,5 +1,5 @@
 
-var elasticsearch=require('elasticsearch');
+const { Client } = require('@elastic/elasticsearch');
 var queryWithFilter = require('./query/queryWithFilter.js');
 var queryWithNoFilter = require('./query/queryWithNoFilter.js');
 var elasticSearchAnalyzer = require('./elasticResultAnalyzer.js');
@@ -10,25 +10,37 @@ var elasticSearchLauncher = function(keyword,country,language,keywordtype,offset
 var host = configuration.getElasticHost();
 var port = configuration.getElasticPort();
 
-var url;
+// Check if we are inside Docker
+// ES_HOST will be defined in docker-compose
+const dockerEsHost = process.env.ES_HOST;
 
-if ( host == "localhost"){
-  url='http://'+ host;
+let esUrl;
+
+if (dockerEsHost) {
+  // Running inside Docker: use the full ES URL from env
+  esUrl = dockerEsHost;
 } else {
-  url = 'https://'+ host;
+  // Running locally: keep your old logic
+  if (host === "localhost") {
+    esUrl = "http://" + host;
+  } else {
+    esUrl = "https://" + host;
+  }
+
+  if (port && port !== "") {
+    esUrl += ":" + port + "/";
+  } else {
+    esUrl += "/";
+  }
 }
 
-if (null!=port && port!=""){
-  url+=':'+port+'/';
-} else {
-  url+='/';
-}
+console.log(`Connecting to Elasticsearch at ${esUrl}`);
 
-var client = new elasticsearch.Client( {  
-  hosts: [
-    url
-  ]
+// Create client
+const client = new Client({
+  node: esUrl
 });
+
 
 var elasticquery={};
 

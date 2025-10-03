@@ -49,16 +49,31 @@ else {
 
 var httpsServer = https.createServer(options,app);
 
-app.use('/', function (req,res,next){
-  req.configuration=configuration;
-  req.applicationCache = applicationCache;
-  req.lm = lm;
-  next();}
-  ,routers);
+try {
+  app.use('/', function (req,res,next){
+    req.configuration=configuration;
+    req.applicationCache = applicationCache;
+    req.lm = lm;
+    next();}
+    ,routers);
 
-var port = configuration.getNodePort();
+  var port = configuration.getNodePort();
 
-httpsServer.listen(port);
+  httpsServer.listen(port, "0.0.0.0", () => {
+    lm.logger.info(`🚀 HTTPS Server running on port ${port}`);
+  });
+
+  httpsServer.on("error", (err) => {
+    lm.logger.error(`❌ HTTPS server failed to start: ${err.message}`);
+    console.error(err);
+    process.exit(1); // exit container if server can’t start
+  });
+
+} catch (err) {
+  lm.logger.error(`❌ Fatal error during server startup: ${err.message}`);
+  console.error(err);
+  process.exit(1);
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,6 +84,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     
     lm.logger.error(err.message);
+    res.status(err.status || 500).json({ error: err.message });
   });
 
 module.exports = app;
