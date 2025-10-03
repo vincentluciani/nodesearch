@@ -5,7 +5,7 @@ class query{
         
         this.elasticQueryBody = {  
             index: country,
-            filterPath : ['hits.hits._source','hits.total.value','aggregations','hits.hits.highlight']          
+            filter_path : ['hits.hits._source','hits.total.value','aggregations','hits.hits.highlight']          
           };
         
           if (null!=offset&&null!=pageSize){

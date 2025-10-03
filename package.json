@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/vincentluciani/brainstriveapp#readme",
   "dependencies": {
+    "@elastic/elasticsearch": "^8.19.1",
     "createerror": "^1.3.0",
-    "@elastic/elasticsearch": "^9.1.1",
     "express": "^4.17.1",
     "get-json": "^1.0.1",
     "node-cache": "^5.1.0",

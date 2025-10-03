@@ -24,7 +24,7 @@ router.get('/test/:file',function (req,res){
         });
 })
 
-router.get('/:country/:language/search/',function (req,res){
+router.get('/api/:country/:language/search/',function (req,res){
 
     if ( req.applicationCache.has( req.originalUrl ) == true ){
         var valueFromCache = req.applicationCache.get( req.originalUrl );

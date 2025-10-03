@@ -3,6 +3,8 @@ Configuration:
 npm install express
 npm install winston
 */
+console.log('Running Node version:', process.version);
+
 var fs = require('fs');
 var https = require('https');
 var routers = require('./routers.js');
@@ -11,6 +13,8 @@ var logManager = require('./logManager.js');
 var configurationManager = require('./configurationManager.js');
 var createError = require('createerror');
 const NodeCache = require( "node-cache" );
+
+
 
 var app =   express();
 
@@ -51,6 +55,7 @@ var httpsServer = https.createServer(options,app);
 
 try {
   app.use('/', function (req,res,next){
+    
     req.configuration=configuration;
     req.applicationCache = applicationCache;
     req.lm = lm;
