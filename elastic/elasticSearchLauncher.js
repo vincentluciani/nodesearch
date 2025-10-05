@@ -26,13 +26,13 @@ if (dockerEsHost) {
   } else {
     esUrl = "https://" + host;
   }
-
-  if (port && port !== "") {
-    esUrl += ":" + port + "/";
-  } else {
-    esUrl += "/";
-  }
 }
+if (port && port !== "") {
+  esUrl += ":" + port + "/";
+} else {
+  esUrl += "/";
+}
+
 
 console.log(`Connecting to Elasticsearch at ${esUrl}`);
 
@@ -74,42 +74,22 @@ if (Object.keys(filters).length>0)
     elasticquery.body.highlight = highlightBody;
   }
 
-  const queryString = JSON.stringify(elasticquery);
-
-  lm.logger.error(queryString);
-
-  // try{
-    
-    // client.search(elasticquery,function (error, response,status) {
-    //     var resultJSON={};
-    //     if (error){
-    //       lm.logger.error("search error: "+error+" query:"+elasticquery)
-    //         resultJSON={};
-    //     }
-    //     else {
-    //       var myElasticSearchAnalyzer = new elasticSearchAnalyzer(response);
-    //       resultJSON = myElasticSearchAnalyzer.getResponse();
-    //     }
-    //     res.send(resultJSON);
-    //     applicationCache.set( originalURL, resultJSON )
-        
-    // });
-
+       
     client.search(elasticquery).then(value=>{
         var myElasticSearchAnalyzer = new elasticSearchAnalyzer(value);
         resultJSON = myElasticSearchAnalyzer.getResponse();
+        var logMessage = "ElasticSearchLauncher with url "+esUrl+" query:" + JSON.stringify(elasticquery);
+      
+        lm.logger.error(logMessage);
+        console.error(logMessage);
         res.send(resultJSON);
         applicationCache.set( originalURL, resultJSON )
     }, reason=>{
-      lm.logger.error("Elasticsearch error: " + reason + " query:" + JSON.stringify(elasticquery));
+      var errorMessage = "Elasticsearch error in elasticSearchLauncher with url "+esUrl+": " + reason + " query:" + JSON.stringify(elasticquery);
+      lm.logger.error(errorMessage);
+      console.error(errorMessage);
       res.send({});
     })
-
-// } catch (e){
-//   lm.logger.error("search error: "+e+" query:"+elasticquery);
-//   var resultJSON={};
-//   res.send(resultJSON);
-// }
 
 }
 

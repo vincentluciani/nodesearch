@@ -1,7 +1,0 @@
-# Dockerfile
-FROM docker.elastic.co/elasticsearch/elasticsearch:8.15.0
-
-# Set environment variables (you can override in docker-compose.yml)
-ENV discovery.type=single-node
-
-#docker-compose up -d --build

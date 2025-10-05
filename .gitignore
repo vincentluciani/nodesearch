@@ -3,3 +3,4 @@ logs/
 key.pem
 crt.pem
 node_modules/
+elasticsearch-custom/elastic_data

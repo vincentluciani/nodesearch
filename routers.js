@@ -24,7 +24,33 @@ router.get('/test/:file',function (req,res){
         });
 })
 
-router.get('/api/:country/:language/search/',function (req,res){
+router.get('/api/:country/:language/search/',executeQuery)
+
+router.get('/:country/:language/search/',executeQuery);
+
+router.get('/api/utils/cache/statistics',function (req,res){
+    var cacheStatistics = req.applicationCache.getStats();
+    res.send(cacheStatistics);
+})
+
+router.get('/api/utils/cache/flush',function (req,res){
+    req.applicationCache.flushAll();
+    var cacheStatistics =  req.applicationCache.getStats();
+    res.send(cacheStatistics);
+})
+
+
+function htmlEscape(text) {
+    var finalText=text. replace(/&/g, '&amp;');
+    finalText=finalText.replace(/&/g, '&amp;').
+    replace(/</g, '&lt;'). // it's not neccessary to escape >
+    replace(/"/g, '&quot;').
+    replace(/'/g, '&#039;');
+    return finalText;
+}
+
+
+function executeQuery(req,res){
 
     if ( req.applicationCache.has( req.originalUrl ) == true ){
         var valueFromCache = req.applicationCache.get( req.originalUrl );
@@ -56,27 +82,7 @@ router.get('/api/:country/:language/search/',function (req,res){
         req.lm,
         req.applicationCache,
         req.originalUrl);
-})
+}
 
-router.get('/api/utils/cache/statistics',function (req,res){
-    var cacheStatistics = req.applicationCache.getStats();
-    res.send(cacheStatistics);
-})
-
-router.get('/api/utils/cache/flush',function (req,res){
-    req.applicationCache.flushAll();
-    var cacheStatistics =  req.applicationCache.getStats();
-    res.send(cacheStatistics);
-})
-
-
-function htmlEscape(text) {
-    var finalText=text. replace(/&/g, '&amp;');
-    finalText=finalText.replace(/&/g, '&amp;').
-    replace(/</g, '&lt;'). // it's not neccessary to escape >
-    replace(/"/g, '&quot;').
-    replace(/'/g, '&#039;');
-    return finalText;
-    }
 
 module.exports = router;

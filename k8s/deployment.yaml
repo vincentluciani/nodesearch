@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp
+  labels:
+    app: nodeapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+        - name: nodeapp
+          image: nodesearch-nodeapp:latest
+          imagePullPolicy: Never   # so Kubernetes uses the local image instead of trying to pull
+          ports:
+            - containerPort: 8001
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: ES_HOST
+              value: "http://elasticsearch"  # or external host
+            - name: ES_PORT
+              value: "9200"
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/tls  # matches paths in your config_production.json
+              readOnly: true
+      volumes:
+        - name: tls-certs
+          secret:
+            secretName: tls-certs # must match the secret you created

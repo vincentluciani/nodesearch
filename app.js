@@ -7,6 +7,7 @@ console.log('Running Node version:', process.version);
 
 var fs = require('fs');
 var https = require('https');
+var http=require('http');
 var routers = require('./routers.js');
 var express = require('express');
 var logManager = require('./logManager.js');
@@ -30,8 +31,18 @@ var key = configuration.getPrivateKey();
 var cert = configuration.getCertificate();
 var bundle = configuration.getBundle();
 
-var keyFile = fs.readFileSync(key);
-var certFile = fs.readFileSync(cert);
+var httpServer;
+var keyFile;
+var certFile;
+
+if (key!=""){
+  httpServer= https.createServer(options,app);
+  keyFile = fs.readFileSync(key);
+  certFile = fs.readFileSync(cert);
+} else {
+  httpServer = http.createServer(options,app);
+}
+
 var bundleFile;
 var options;
 
@@ -51,8 +62,6 @@ else {
   };
 }
 
-var httpsServer = https.createServer(options,app);
-
 try {
   app.use('/', function (req,res,next){
     
@@ -64,11 +73,12 @@ try {
 
   var port = configuration.getNodePort();
 
-  httpsServer.listen(port, "0.0.0.0", () => {
+    httpServer.listen(port, "0.0.0.0", () => {
     lm.logger.info(`🚀 HTTPS Server running on port ${port}`);
+    console.log(`🚀 HTTPS Server running on port ${port}`);
   });
 
-  httpsServer.on("error", (err) => {
+  httpServer.on("error", (err) => {
     lm.logger.error(`❌ HTTPS server failed to start: ${err.message}`);
     console.error(err);
     process.exit(1); // exit container if server can’t start
